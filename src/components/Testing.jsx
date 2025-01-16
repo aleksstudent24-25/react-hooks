@@ -73,7 +73,8 @@ export function IntervalExample() {
   return (
     <div>
       <p>
-        {time % (60 * 60)} Hours {time % 60} Minutes {time} Seconds
+        {Math.floor(time / (60 * 60))} Hours {Math.floor(time / 60)} Minutes{" "}
+        {time} Seconds
       </p>
       <button onClick={pause}>Pause</button>
       <button onClick={reset}>Reset</button>

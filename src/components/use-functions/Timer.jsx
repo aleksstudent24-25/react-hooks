@@ -6,16 +6,15 @@ export default function useTimer() {
   let intervalid;
   useEffect(() => {
     intervalid = setInterval(() => {
-      console.log(isPaused);
       if (!isPaused) setTime((time) => time + 1);
     }, 1000);
     return () => {
       clearInterval(intervalid);
     };
-  }, []);
+  }, [isPaused]);
 
   const pause = () => {
-    setPause((prev) => !prev);
+    setPause((current) => !current);
   };
 
   const reset = () => {
