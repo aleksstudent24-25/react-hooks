@@ -6,6 +6,7 @@ import {
   FormExampleIntermediate,
   ArrayExample,
   IntervalExample,
+  WindowSizeExample,
 } from "./components/Testing";
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
       <FormExampleIntermediate></FormExampleIntermediate>
       <ArrayExample></ArrayExample>
       <IntervalExample></IntervalExample>
+      <WindowSizeExample></WindowSizeExample>
     </>
   );
 }

@@ -2,6 +2,7 @@ import useToggle from "./use-functions/Toggle";
 import useFormInput from "./use-functions/FormInput";
 import useArray from "./use-functions/Array";
 import useTimer from "./use-functions/Timer";
+import useWindowSize from "./use-functions/WindowSize";
 
 export function ToggleExample() {
   const [isVisible, toggleIsVisible] = useToggle();
@@ -78,6 +79,19 @@ export function IntervalExample() {
       </p>
       <button onClick={pause}>Pause</button>
       <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+
+export function WindowSizeExample() {
+  const { width, height } = useWindowSize();
+  console.log(width);
+
+  return (
+    <div>
+      <h2>Vinduets størrelse</h2>
+      <p>Bredde: {width}px</p>
+      <p>Høyde: {height}px</p>
     </div>
   );
 }
