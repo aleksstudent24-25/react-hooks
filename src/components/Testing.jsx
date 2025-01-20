@@ -3,6 +3,7 @@ import useFormInput from "./use-functions/FormInput";
 import useArray from "./use-functions/Array";
 import useTimer from "./use-functions/Timer";
 import useWindowSize from "./use-functions/WindowSize";
+import useFetch from "./use-functions/Fetch";
 
 export function ToggleExample() {
   const [isVisible, toggleIsVisible] = useToggle();
@@ -85,13 +86,34 @@ export function IntervalExample() {
 
 export function WindowSizeExample() {
   const { width, height } = useWindowSize();
-  console.log(width);
 
   return (
     <div>
       <h2>Vinduets størrelse</h2>
       <p>Bredde: {width}px</p>
       <p>Høyde: {height}px</p>
+    </div>
+  );
+}
+
+export function FetchExample() {
+  const { data, isLoading, error } = useFetch(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
+
+  return (
+    <div>
+      {/* <button onClick={handleFetch}>Hent data</button> */}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error} </p>
+      ) : (
+        <div>
+          <h3>{data.title}</h3>
+          <p>{data.body}</p>
+        </div>
+      )}
     </div>
   );
 }
